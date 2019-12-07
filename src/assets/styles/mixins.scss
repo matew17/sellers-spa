@@ -1,0 +1,11 @@
+// font-size: 62.5%;   =10px */
+// font-size: 1.4rem;  =14px */
+// font-size: 2.4rem;  =24px */
+@mixin font($sizeValue: 1.6) {
+  font-size: $sizeValue + rem;
+}
+
+@mixin  square($size: 20) {
+  width: $size + px;
+  height: $size + px;
+}

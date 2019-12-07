@@ -1,0 +1,47 @@
+@import './../../assets/styles/base.scss';
+
+.sellers {
+  position: relative;
+
+  .title {
+    @include font(2.4);
+    padding: 0;
+    margin: 16px;
+  }
+
+  .list-container {
+    margin: 64px 0 0 0;
+  }
+
+  .add-button {
+    @include square(50);
+    align-items: center;
+    background: $coral;
+    border-radius: 50%;
+    border: none;
+    color: $white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 16px;
+    top: 0;
+    transition: 0.5s ease-in-out;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  .add-icon {
+    @include font(4);
+  }
+
+  .no-sellers {
+    @include font(1.6);
+    justify-content: center;
+    display: flex;
+  }
+}

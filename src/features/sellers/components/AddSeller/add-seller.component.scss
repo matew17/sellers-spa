@@ -1,0 +1,77 @@
+@import './../../../../assets/styles/base.scss';
+
+.add-seller {
+  @include font();
+
+  .header {
+    display: flex;
+    margin: 16px 0;
+  }
+
+  .back-link {
+    @include font(1.2);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .title {
+    @include font(2.4);
+    flex: 1;
+    text-align: center;
+  }
+
+  .form {
+    form {
+      display: flex;
+      flex-flow: column;
+      border: 1px solid $black;
+      padding: 16px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input {
+      width: 80%;
+      padding: 8px;
+      margin: 8px 0;
+    }
+
+    .field {
+      width: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      label {
+        @include font(1.4);
+      }
+
+      select {
+        width: 85%;
+      }
+    }
+
+    .input-container {
+      width: 80%;
+    }
+
+    .error {
+      @include font(1.2);
+      color: $error-message;
+    }
+
+    .submit-button {
+      background: $coral;
+      color: $white;
+      cursor: pointer;
+      margin: 16px 0 0;
+      padding: 16px;
+      border: none;
+
+      &:disabled {
+        opacity: .8;
+      }
+    }
+  }
+}
