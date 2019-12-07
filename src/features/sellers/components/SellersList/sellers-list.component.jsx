@@ -35,7 +35,7 @@ class SellersList extends React.Component {
         role: element.role.name,
         comission: this.getComission(element.comission),
         active: element.active ? 'Active' : 'Inactive',
-        activeToggle: element.active ? 'Active' : 'Inactive',
+        activeToggle: element.active,
         id: element._id,
         roleID: element.role._id,
         penalty: element.penalty
@@ -70,17 +70,11 @@ class SellersList extends React.Component {
           ]}
           data={this.state.sellers}
           actions={[
-            {
-              icon: 'delete',
-              tooltip: 'Delete User',
+            rowData => ({
+              icon: rowData.activeToggle ? 'delete' : 'update',
+              tooltip: rowData.activeToggle ? 'Delete seller' : 'Activate seller',
               onClick: (e, data) => this.props.deleteSeller(data)
-            },
-            {
-              icon: 'update',
-              tooltip: 'Enable User',
-              onClick: (e, data) => this.props.deleteSeller(data),
-              // disabled: data.activeToggle
-            },
+            }),
             {
               icon: 'edit',
               tooltip: 'Edit User',

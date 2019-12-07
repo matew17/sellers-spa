@@ -1,6 +1,6 @@
 import 'react-toastify/dist/ReactToastify.min.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { withRouter } from 'react-router-dom';
 import * as Yup from 'yup';
 import React from 'react';
@@ -72,10 +72,8 @@ class AddSeller extends React.Component {
       .catch(err => console.log(err));
   };
 
-  goBack(timeout = 0) {
-    setTimeout(() => {
-      this.history.push('/');
-    }, timeout);
+  goBack() {
+    this.history.push('/');
   }
 
   setInitialvalues() {
@@ -137,14 +135,14 @@ class AddSeller extends React.Component {
         toast.success("Seller was updated successfully !", {
           position: toast.POSITION.BOTTOM_RIGHT
         });
-        this.goBack(3001);
+        this.goBack();
       })
       .catch((err) => {
         console.log(err);
         toast.error("Oh no, an error ocurred creating the seller !", {
           position: toast.POSITION.BOTTOM_RIGHT
         });
-        this.goBack(3001);
+        this.goBack();
       })
       .finally(() => {
         setSubmitting(true);
@@ -245,8 +243,6 @@ class AddSeller extends React.Component {
               <div>Loading... </div>
             )
         }
-
-        <ToastContainer />
       </section>
     );
   }
