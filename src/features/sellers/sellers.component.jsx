@@ -27,7 +27,8 @@ class Sellers extends React.Component {
   deleteSeller(data) {
     let seller = {
       penalty: data.penalty,
-      role: data.roleID
+      role: data.roleID,
+      active: !data.activeToggle
     };
 
     sellerService.deleteSeller(data.id, seller)

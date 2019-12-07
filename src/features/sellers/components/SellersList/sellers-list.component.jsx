@@ -73,7 +73,7 @@ class SellersList extends React.Component {
             rowData => ({
               icon: rowData.activeToggle ? 'delete' : 'update',
               tooltip: rowData.activeToggle ? 'Delete seller' : 'Activate seller',
-              onClick: (e, data) => this.props.deleteSeller(data)
+              onClick: (e, rowData) => this.props.deleteSeller(rowData)
             }),
             {
               icon: 'edit',
