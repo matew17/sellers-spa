@@ -42,14 +42,12 @@ class AddSeller extends React.Component {
   createSeller(values, setSubmitting) {
     sellerService.addSeller(values)
       .then(({ data }) => {
-        console.log(data);
         toast.success("Seller was created successfully !", {
           position: toast.POSITION.BOTTOM_RIGHT
         });
         this.goBack(3001);
       })
       .catch((err) => {
-        console.log(err);
         toast.error("Oh no, an error ocurred creating the seller !", {
           position: toast.POSITION.BOTTOM_RIGHT
         });
@@ -108,14 +106,8 @@ class AddSeller extends React.Component {
         .max(9999999999),
       address: Yup.string()
         .required('Address is Required'),
-      role: Yup.string()
+      role: this.state.isEditMode ? Yup.string() : Yup.string().required('Role is required')
     });
-
-    if (!this.state.isEditMode) {
-      this.sellersSchema = Yup.object().shape({
-        role: Yup.string().required('Role is required')
-      });
-    }
   }
 
   submit(values, { setSubmitting }) {
@@ -131,14 +123,12 @@ class AddSeller extends React.Component {
 
     sellerService.updateSeller(values, this.state.editState.id)
       .then(({ data }) => {
-        console.log(data);
         toast.success("Seller was updated successfully !", {
           position: toast.POSITION.BOTTOM_RIGHT
         });
         this.goBack();
       })
       .catch((err) => {
-        console.log(err);
         toast.error("Oh no, an error ocurred creating the seller !", {
           position: toast.POSITION.BOTTOM_RIGHT
         });

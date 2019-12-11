@@ -33,7 +33,6 @@ class Sellers extends React.Component {
 
     sellerService.deleteSeller(data.id, seller)
       .then((res) => {
-        console.log(res);
         toast.success("Seller was deactivated successfully !", {
           position: toast.POSITION.BOTTOM_RIGHT
         });
@@ -42,7 +41,6 @@ class Sellers extends React.Component {
         }, 3000);
       })
       .catch((err) => {
-        console.log(err);
         toast.error("Oh no, an error ocurred deactivatings the seller !", {
           position: toast.POSITION.BOTTOM_RIGHT
         });
@@ -62,7 +60,6 @@ class Sellers extends React.Component {
         });
       })
       .catch(err => {
-        console.log(err);
         toast.error("Oh no, an error ocurred loading sellers !", {
           position: toast.POSITION.BOTTOM_RIGHT
         });
